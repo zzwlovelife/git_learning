@@ -6,6 +6,10 @@
 
 namespace bthread {
 
+// =============================================================================
+// BusinessThread 实现 - 业务线程模板基类
+// =============================================================================
+
 // 统一的 spdlog 日志名（与 main.cpp 中 initLog 注册的名称一致）
 static const char* kLoggerName = "app";
 
@@ -14,36 +18,49 @@ static std::shared_ptr<spdlog::logger> appLogger() {
     return spdlog::get(kLoggerName);
 }
 
+// -----------------------------------------------------------------------------
+// 构造：连接内部消息投递信号到 onMessage 槽（QueuedConnection）
+// 这样 postMessage() 发出的 _messagePosted 信号会被投递到本线程事件队列，
+// 由本线程的事件循环取出执行 onMessage，保证 handleMessage 在本线程执行。
+// -----------------------------------------------------------------------------
 BusinessThread::BusinessThread(const QString& name, QObject* parent)
     : QThread(parent), name_(name) {
-    // 内部信号投递到自己的 onMessage 槽（QueuedConnection，保证在本线程执行）
     connect(this, &BusinessThread::_messagePosted,
             this, &BusinessThread::onMessage, Qt::QueuedConnection);
 }
 
+// 析构：优雅停止并等待线程退出
 BusinessThread::~BusinessThread() {
     stopGracefully();
     wait();
 }
 
+// 注入消息总线并订阅其广播（跨线程自动 QueuedConnection）
 void BusinessThread::setMessageBus(MessageBus* bus) {
     bus_ = bus;
     if (bus_) {
-        // 订阅总线广播（跨线程时自动 QueuedConnection）
         connect(bus_, &MessageBus::messagePublished,
                 this, &BusinessThread::onMessage, Qt::QueuedConnection);
     }
 }
 
+// 由其他线程调用：向本线程投递消息（经 _messagePosted 信号转入本线程）
 void BusinessThread::postMessage(const Message& msg) {
     emit _messagePosted(msg);
 }
 
+// 优雅停止：清运行标志 + 退出事件循环（exec() 返回）
 void BusinessThread::stopGracefully() {
     running_.storeRelaxed(0);
     quit();
 }
 
+// -----------------------------------------------------------------------------
+// run() - 线程入口，按固定生命周期顺序执行钩子：
+//   onInit() -> started 信号 -> logInfo -> onStart() -> exec() -> onStop() -> onCleanup()
+// exec() 是事件循环，处理消息队列、定时器、QueuedConnection 信号；
+// stopGracefully() 调用 quit() 后 exec() 返回，继续执行清理钩子。
+// -----------------------------------------------------------------------------
 void BusinessThread::run() {
     if (!onInit()) {
         emit error(name_, "onInit failed");
@@ -61,22 +78,27 @@ void BusinessThread::run() {
     logInfo(name_ + " thread stopped");
 }
 
+// 消息处理入口：转交给子类重写的 handleMessage
 void BusinessThread::onMessage(const Message& msg) {
     handleMessage(msg);
 }
 
+// 广播消息到总线（所有订阅线程都会收到）
 void BusinessThread::broadcast(const QString& type, const QVariant& data) {
     if (bus_) {
         bus_->publish(Message(type, name_, data));
     }
 }
 
+// -----------------------------------------------------------------------------
+// 混合日志：子线程直接写 spdlog + 发信号给 UI
+// spdlog 的 _mt sink 内部加锁，多线程直接调用安全，且保证同一线程内日志有序。
+// 信号仅用于 UI 显示，不重复写 spdlog。
+// -----------------------------------------------------------------------------
 void BusinessThread::logDebug(const QString& msg) {
-    // 1. 子线程直接写 spdlog（文件+控制台，_mt sink 线程安全，低延迟、保序）
     if (auto l = appLogger()) {
         l->debug("[{}] {}", name_.toStdString(), msg.toStdString());
     }
-    // 2. 同时发信号给主线程 UI 显示（不重复写 spdlog）
     emit logMessage(static_cast<int>(LogLevel::Debug), name_, msg);
 }
 
