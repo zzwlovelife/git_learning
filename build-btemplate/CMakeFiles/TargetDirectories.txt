@@ -1,0 +1,5 @@
+/workspace/build-btemplate/CMakeFiles/btemplate.dir
+/workspace/build-btemplate/CMakeFiles/edit_cache.dir
+/workspace/build-btemplate/CMakeFiles/rebuild_cache.dir
+/workspace/build-btemplate/CMakeFiles/btemplate_autogen_timestamp_deps.dir
+/workspace/build-btemplate/CMakeFiles/btemplate_autogen.dir

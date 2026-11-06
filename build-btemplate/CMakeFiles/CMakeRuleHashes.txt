@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+dec2deca29ff2f8355e67f7fcc7504e8 CMakeFiles/btemplate_autogen
+dec2deca29ff2f8355e67f7fcc7504e8 CMakeFiles/btemplate_autogen_timestamp_deps
+e56dca4a6087cfa1abc81421f77ae7f4 btemplate_autogen/timestamp

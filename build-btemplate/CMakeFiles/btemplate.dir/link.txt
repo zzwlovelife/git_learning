@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/btemplate.dir/btemplate_autogen/mocs_compilation.cpp.o CMakeFiles/btemplate.dir/src/main.cpp.o CMakeFiles/btemplate.dir/src/business_thread.cpp.o CMakeFiles/btemplate.dir/src/thread_manager.cpp.o -o btemplate  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 
