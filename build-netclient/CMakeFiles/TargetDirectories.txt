@@ -1,0 +1,8 @@
+/workspace/build-netclient/CMakeFiles/netclient.dir
+/workspace/build-netclient/CMakeFiles/netclient_demo.dir
+/workspace/build-netclient/CMakeFiles/edit_cache.dir
+/workspace/build-netclient/CMakeFiles/rebuild_cache.dir
+/workspace/build-netclient/CMakeFiles/netclient_autogen_timestamp_deps.dir
+/workspace/build-netclient/CMakeFiles/netclient_autogen.dir
+/workspace/build-netclient/CMakeFiles/netclient_demo_autogen_timestamp_deps.dir
+/workspace/build-netclient/CMakeFiles/netclient_demo_autogen.dir

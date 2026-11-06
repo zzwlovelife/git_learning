@@ -1,0 +1,260 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'websocket_client.cpp'
+**
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <memory>
+#include <QtCore/qmetatype.h>
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'websocket_client.cpp' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 68
+#error "This file was generated using the moc from 6.4.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_stringdata_netclient__WsWorker_t {
+    uint offsetsAndSizes[28];
+    char stringdata0[20];
+    char stringdata1[10];
+    char stringdata2[1];
+    char stringdata3[13];
+    char stringdata4[20];
+    char stringdata5[8];
+    char stringdata6[22];
+    char stringdata7[5];
+    char stringdata8[5];
+    char stringdata9[4];
+    char stringdata10[6];
+    char stringdata11[9];
+    char stringdata12[5];
+    char stringdata13[11];
+};
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(sizeof(qt_meta_stringdata_netclient__WsWorker_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_netclient__WsWorker_t qt_meta_stringdata_netclient__WsWorker = {
+    {
+        QT_MOC_LITERAL(0, 19),  // "netclient::WsWorker"
+        QT_MOC_LITERAL(20, 9),  // "connected"
+        QT_MOC_LITERAL(30, 0),  // ""
+        QT_MOC_LITERAL(31, 12),  // "disconnected"
+        QT_MOC_LITERAL(44, 19),  // "textMessageReceived"
+        QT_MOC_LITERAL(64, 7),  // "message"
+        QT_MOC_LITERAL(72, 21),  // "binaryMessageReceived"
+        QT_MOC_LITERAL(94, 4),  // "data"
+        QT_MOC_LITERAL(99, 4),  // "open"
+        QT_MOC_LITERAL(104, 3),  // "url"
+        QT_MOC_LITERAL(108, 5),  // "close"
+        QT_MOC_LITERAL(114, 8),  // "sendText"
+        QT_MOC_LITERAL(123, 4),  // "text"
+        QT_MOC_LITERAL(128, 10)   // "sendBinary"
+    },
+    "netclient::WsWorker",
+    "connected",
+    "",
+    "disconnected",
+    "textMessageReceived",
+    "message",
+    "binaryMessageReceived",
+    "data",
+    "open",
+    "url",
+    "close",
+    "sendText",
+    "text",
+    "sendBinary"
+};
+#undef QT_MOC_LITERAL
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_netclient__WsWorker[] = {
+
+ // content:
+      10,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       8,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       4,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   62,    2, 0x06,    1 /* Public */,
+       3,    0,   63,    2, 0x06,    2 /* Public */,
+       4,    1,   64,    2, 0x06,    3 /* Public */,
+       6,    1,   67,    2, 0x06,    5 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       8,    1,   70,    2, 0x0a,    7 /* Public */,
+      10,    0,   73,    2, 0x0a,    9 /* Public */,
+      11,    1,   74,    2, 0x0a,   10 /* Public */,
+      13,    1,   77,    2, 0x0a,   12 /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QByteArray,    7,
+
+ // slots: parameters
+    QMetaType::Void, QMetaType::QUrl,    9,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void, QMetaType::QByteArray,    7,
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject netclient::WsWorker::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_meta_stringdata_netclient__WsWorker.offsetsAndSizes,
+    qt_meta_data_netclient__WsWorker,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_netclient__WsWorker_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<WsWorker, std::true_type>,
+        // method 'connected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'disconnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'textMessageReceived'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'binaryMessageReceived'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        // method 'open'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QUrl &, std::false_type>,
+        // method 'close'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'sendText'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'sendBinary'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>
+    >,
+    nullptr
+} };
+
+void netclient::WsWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<WsWorker *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->connected(); break;
+        case 1: _t->disconnected(); break;
+        case 2: _t->textMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->binaryMessageReceived((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 4: _t->open((*reinterpret_cast< std::add_pointer_t<QUrl>>(_a[1]))); break;
+        case 5: _t->close(); break;
+        case 6: _t->sendText((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->sendBinary((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (WsWorker::*)();
+            if (_t _q_method = &WsWorker::connected; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (WsWorker::*)();
+            if (_t _q_method = &WsWorker::disconnected; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (WsWorker::*)(const QString & );
+            if (_t _q_method = &WsWorker::textMessageReceived; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (WsWorker::*)(const QByteArray & );
+            if (_t _q_method = &WsWorker::binaryMessageReceived; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 3;
+                return;
+            }
+        }
+    }
+}
+
+const QMetaObject *netclient::WsWorker::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *netclient::WsWorker::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_netclient__WsWorker.stringdata0))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int netclient::WsWorker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 8)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 8;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 8)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 8;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void netclient::WsWorker::connected()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void netclient::WsWorker::disconnected()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void netclient::WsWorker::textMessageReceived(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void netclient::WsWorker::binaryMessageReceived(const QByteArray & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+QT_WARNING_POP
+QT_END_MOC_NAMESPACE

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/netclient_demo.dir/netclient_demo_autogen/mocs_compilation.cpp.o CMakeFiles/netclient_demo.dir/examples/netclient_demo.cpp.o -o netclient_demo  -Wl,-rpath,/workspace/build-netclient libnetclient.so.1.0.0 /usr/lib/x86_64-linux-gnu/libQt6WebSockets.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 
