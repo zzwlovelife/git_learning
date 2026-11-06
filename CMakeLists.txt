@@ -56,3 +56,9 @@ set_target_properties(logger_shared PROPERTIES
 # 动态库的使用方：只包含 C 头文件，链接 liblogger
 add_executable(ex_dynamic_lib examples/05_dynamic_lib.cpp)
 target_link_libraries(ex_dynamic_lib PRIVATE logger_shared)
+
+# ---------------------------------------------------------------------------
+# 数据库客户端动态库：QSqlDatabase + QODBC + unixODBC + DM ODBC
+# ---------------------------------------------------------------------------
+find_package(Qt6 REQUIRED COMPONENTS Core Sql)
+add_subdirectory(dbclient)
