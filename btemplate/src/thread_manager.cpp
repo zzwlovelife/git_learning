@@ -13,9 +13,9 @@ ThreadManager::~ThreadManager() {
 void ThreadManager::addThread(BusinessThread* thread) {
     thread->setMessageBus(bus_);
     threads_.append(thread);
-    // 转发日志信号到管理器统一出口
-    connect(thread, &BusinessThread::log,
-            this, &ThreadManager::threadLog, Qt::QueuedConnection);
+    // 转发日志信号到管理器统一出口（仅供 UI 显示，不写 spdlog）
+    connect(thread, &BusinessThread::logMessage,
+            this, &ThreadManager::threadLogMessage, Qt::QueuedConnection);
     connect(thread, &BusinessThread::started, this, [this](const QString&) {
         if (++runningCount_ == threads_.size()) emit allStarted();
     });

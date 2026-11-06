@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_bthread__BusinessThread_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[36];
     char stringdata0[24];
     char stringdata1[8];
     char stringdata2[1];
@@ -34,11 +34,17 @@ struct qt_meta_stringdata_bthread__BusinessThread_t {
     char stringdata4[8];
     char stringdata5[6];
     char stringdata6[4];
-    char stringdata7[4];
-    char stringdata8[4];
-    char stringdata9[15];
-    char stringdata10[17];
-    char stringdata11[10];
+    char stringdata7[11];
+    char stringdata8[6];
+    char stringdata9[4];
+    char stringdata10[15];
+    char stringdata11[17];
+    char stringdata12[10];
+    char stringdata13[9];
+    char stringdata14[6];
+    char stringdata15[5];
+    char stringdata16[5];
+    char stringdata17[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_bthread__BusinessThread_t::offsetsAndSizes) + ofs), len 
@@ -51,11 +57,17 @@ Q_CONSTINIT static const qt_meta_stringdata_bthread__BusinessThread_t qt_meta_st
         QT_MOC_LITERAL(38, 7),  // "stopped"
         QT_MOC_LITERAL(46, 5),  // "error"
         QT_MOC_LITERAL(52, 3),  // "err"
-        QT_MOC_LITERAL(56, 3),  // "log"
-        QT_MOC_LITERAL(60, 3),  // "msg"
-        QT_MOC_LITERAL(64, 14),  // "_messagePosted"
-        QT_MOC_LITERAL(79, 16),  // "bthread::Message"
-        QT_MOC_LITERAL(96, 9)   // "onMessage"
+        QT_MOC_LITERAL(56, 10),  // "logMessage"
+        QT_MOC_LITERAL(67, 5),  // "level"
+        QT_MOC_LITERAL(73, 3),  // "msg"
+        QT_MOC_LITERAL(77, 14),  // "_messagePosted"
+        QT_MOC_LITERAL(92, 16),  // "bthread::Message"
+        QT_MOC_LITERAL(109, 9),  // "onMessage"
+        QT_MOC_LITERAL(119, 8),  // "LogLevel"
+        QT_MOC_LITERAL(128, 5),  // "Debug"
+        QT_MOC_LITERAL(134, 4),  // "Info"
+        QT_MOC_LITERAL(139, 4),  // "Warn"
+        QT_MOC_LITERAL(144, 5)   // "Error"
     },
     "bthread::BusinessThread",
     "started",
@@ -64,11 +76,17 @@ Q_CONSTINIT static const qt_meta_stringdata_bthread__BusinessThread_t qt_meta_st
     "stopped",
     "error",
     "err",
-    "log",
+    "logMessage",
+    "level",
     "msg",
     "_messagePosted",
     "bthread::Message",
-    "onMessage"
+    "onMessage",
+    "LogLevel",
+    "Debug",
+    "Info",
+    "Warn",
+    "Error"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -81,7 +99,7 @@ Q_CONSTINIT static const uint qt_meta_data_bthread__BusinessThread[] = {
        0,    0, // classinfo
        6,   14, // methods
        0,    0, // properties
-       0,    0, // enums/sets
+       1,   74, // enums/sets
        0,    0, // constructors
        0,       // flags
        5,       // signalCount
@@ -90,21 +108,30 @@ Q_CONSTINIT static const uint qt_meta_data_bthread__BusinessThread[] = {
        1,    1,   50,    2, 0x06,    1 /* Public */,
        4,    1,   53,    2, 0x06,    3 /* Public */,
        5,    2,   56,    2, 0x06,    5 /* Public */,
-       7,    2,   61,    2, 0x06,    8 /* Public */,
-       9,    1,   66,    2, 0x06,   11 /* Public */,
+       7,    3,   61,    2, 0x06,    8 /* Public */,
+      10,    1,   68,    2, 0x06,   12 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      11,    1,   69,    2, 0x0a,   13 /* Public */,
+      12,    1,   71,    2, 0x0a,   14 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    6,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    8,
-    QMetaType::Void, 0x80000000 | 10,    8,
+    QMetaType::Void, QMetaType::Int, QMetaType::QString, QMetaType::QString,    8,    3,    9,
+    QMetaType::Void, 0x80000000 | 11,    9,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 10,    8,
+    QMetaType::Void, 0x80000000 | 11,    9,
+
+ // enums: name, alias, flags, count, data
+      13,   13, 0x0,    4,   79,
+
+ // enum data: key, value
+      14, uint(bthread::BusinessThread::Debug),
+      15, uint(bthread::BusinessThread::Info),
+      16, uint(bthread::BusinessThread::Warn),
+      17, uint(bthread::BusinessThread::Error),
 
        0        // eod
 };
@@ -128,8 +155,9 @@ Q_CONSTINIT const QMetaObject bthread::BusinessThread::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'log'
+        // method 'logMessage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method '_messagePosted'
@@ -151,7 +179,7 @@ void bthread::BusinessThread::qt_static_metacall(QObject *_o, QMetaObject::Call 
         case 0: _t->started((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->stopped((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->error((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 3: _t->log((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 3: _t->logMessage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
         case 4: _t->_messagePosted((*reinterpret_cast< std::add_pointer_t<bthread::Message>>(_a[1]))); break;
         case 5: _t->onMessage((*reinterpret_cast< std::add_pointer_t<bthread::Message>>(_a[1]))); break;
         default: ;
@@ -198,8 +226,8 @@ void bthread::BusinessThread::qt_static_metacall(QObject *_o, QMetaObject::Call 
             }
         }
         {
-            using _t = void (BusinessThread::*)(const QString & , const QString & );
-            if (_t _q_method = &BusinessThread::log; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (BusinessThread::*)(int , const QString & , const QString & );
+            if (_t _q_method = &BusinessThread::logMessage; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
             }
@@ -266,9 +294,9 @@ void bthread::BusinessThread::error(const QString & _t1, const QString & _t2)
 }
 
 // SIGNAL 3
-void bthread::BusinessThread::log(const QString & _t1, const QString & _t2)
+void bthread::BusinessThread::logMessage(int _t1, const QString & _t2, const QString & _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 

@@ -78,10 +78,16 @@ int main(int argc, char* argv[]) {
     manager.addThread(process);
     manager.addThread(distribute);
 
-    // 把业务线程的日志统一接入 spdlog
-    QObject::connect(&manager, &ThreadManager::threadLog,
-                     &app, [logger](const QString& name, const QString& msg) {
-        logger->info("[{}] {}", name.toStdString(), msg.toStdString());
+    // 业务线程日志已由子线程直接写入 spdlog（文件+控制台）。
+    // 这里 threadLogMessage 仅用于 UI 显示：在 GUI 程序中可接到 QPlainTextEdit 等控件。
+    // 本示例为控制台程序，用 qDebug 演示 UI 通道的接收（带级别着色可在 UI 中实现）。
+    static const char* kLevelNames[] = {"DEBUG", "INFO", "WARN", "ERROR"};
+    QObject::connect(&manager, &ThreadManager::threadLogMessage,
+                     &app, [](int level, const QString& name, const QString& msg) {
+        // 此处仅演示 UI 通道；实际 GUI 项目中：
+        //   ui->logView->appendPlainText(QString("[%1] [%2] %3")
+        //       .arg(kLevelNames[level]).arg(name).arg(msg));
+        Q_UNUSED(level); Q_UNUSED(name); Q_UNUSED(msg);
     });
 
     // 全部启动后通知

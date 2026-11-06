@@ -326,4 +326,86 @@ CMakeFiles/btemplate.dir/src/business_thread.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/spdlog.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/common.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/null_mutex.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/tweakme.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/fmt/fmt.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/fmt/bundled/format.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/fmt/bundled/base.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/fmt/bundled/format.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/fmt/bundled/format-inl.h \
+ /usr/include/c++/13/climits /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+ /usr/include/c++/13/bits/locale_facets.tcc \
+ /usr/include/c++/13/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/common-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/registry.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/periodic_worker.h \
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/this_thread_sleep.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/periodic_worker-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/registry-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/logger.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/backtracer.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/circular_q.h \
+ /usr/include/c++/13/cassert \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/log_msg_buffer.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/log_msg.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/log_msg-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/os.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/os-inl.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/linux/falloc.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /usr/include/x86_64-linux-gnu/sys/syscall.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+ /usr/include/x86_64-linux-gnu/bits/syscall.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/log_msg_buffer-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/backtracer-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/logger-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/pattern_formatter.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/formatter.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/pattern_formatter-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/fmt_helper.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/mdc.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/sinks/sink.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/sinks/sink-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/sinks/ansicolor_sink.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/console_globals.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/details/synchronous_factory.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/version.h \
+ /workspace/btemplate/../third_party/spdlog/include/spdlog/spdlog-inl.h

@@ -39,7 +39,9 @@ public:
 signals:
     void allStarted();
     void allStopped();
-    void threadLog(const QString& name, const QString& msg);
+    // 线程日志：仅供 UI 显示使用（spdlog 已由子线程直接写入，此处不重复写）
+    // level: 0=Debug 1=Info 2=Warn 3=Error
+    void threadLogMessage(int level, const QString& name, const QString& msg);
 
 private:
     QList<BusinessThread*> threads_;

@@ -2,8 +2,17 @@
 #include "bthread/message_bus.h"
 
 #include <QMetaObject>
+#include <spdlog/spdlog.h>
 
 namespace bthread {
+
+// 统一的 spdlog 日志名（与 main.cpp 中 initLog 注册的名称一致）
+static const char* kLoggerName = "app";
+
+// 安全获取 logger，不存在时返回 nullptr（调用方自行兜底）
+static std::shared_ptr<spdlog::logger> appLogger() {
+    return spdlog::get(kLoggerName);
+}
 
 BusinessThread::BusinessThread(const QString& name, QObject* parent)
     : QThread(parent), name_(name) {
@@ -62,13 +71,35 @@ void BusinessThread::broadcast(const QString& type, const QVariant& data) {
     }
 }
 
+void BusinessThread::logDebug(const QString& msg) {
+    // 1. 子线程直接写 spdlog（文件+控制台，_mt sink 线程安全，低延迟、保序）
+    if (auto l = appLogger()) {
+        l->debug("[{}] {}", name_.toStdString(), msg.toStdString());
+    }
+    // 2. 同时发信号给主线程 UI 显示（不重复写 spdlog）
+    emit logMessage(static_cast<int>(LogLevel::Debug), name_, msg);
+}
+
 void BusinessThread::logInfo(const QString& msg) {
-    emit log(name_, msg);
+    if (auto l = appLogger()) {
+        l->info("[{}] {}", name_.toStdString(), msg.toStdString());
+    }
+    emit logMessage(static_cast<int>(LogLevel::Info), name_, msg);
+}
+
+void BusinessThread::logWarn(const QString& msg) {
+    if (auto l = appLogger()) {
+        l->warn("[{}] {}", name_.toStdString(), msg.toStdString());
+    }
+    emit logMessage(static_cast<int>(LogLevel::Warn), name_, msg);
 }
 
 void BusinessThread::logError(const QString& msg) {
+    if (auto l = appLogger()) {
+        l->error("[{}] {}", name_.toStdString(), msg.toStdString());
+    }
+    emit logMessage(static_cast<int>(LogLevel::Error), name_, msg);
     emit error(name_, msg);
-    emit log(name_, "[ERROR] " + msg);
 }
 
 } // namespace bthread

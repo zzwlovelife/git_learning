@@ -26,14 +26,15 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_bthread__ThreadManager_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[16];
     char stringdata0[23];
     char stringdata1[11];
     char stringdata2[1];
     char stringdata3[11];
-    char stringdata4[10];
-    char stringdata5[5];
-    char stringdata6[4];
+    char stringdata4[17];
+    char stringdata5[6];
+    char stringdata6[5];
+    char stringdata7[4];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_bthread__ThreadManager_t::offsetsAndSizes) + ofs), len 
@@ -43,15 +44,17 @@ Q_CONSTINIT static const qt_meta_stringdata_bthread__ThreadManager_t qt_meta_str
         QT_MOC_LITERAL(23, 10),  // "allStarted"
         QT_MOC_LITERAL(34, 0),  // ""
         QT_MOC_LITERAL(35, 10),  // "allStopped"
-        QT_MOC_LITERAL(46, 9),  // "threadLog"
-        QT_MOC_LITERAL(56, 4),  // "name"
-        QT_MOC_LITERAL(61, 3)   // "msg"
+        QT_MOC_LITERAL(46, 16),  // "threadLogMessage"
+        QT_MOC_LITERAL(63, 5),  // "level"
+        QT_MOC_LITERAL(69, 4),  // "name"
+        QT_MOC_LITERAL(74, 3)   // "msg"
     },
     "bthread::ThreadManager",
     "allStarted",
     "",
     "allStopped",
-    "threadLog",
+    "threadLogMessage",
+    "level",
     "name",
     "msg"
 };
@@ -74,12 +77,12 @@ Q_CONSTINIT static const uint qt_meta_data_bthread__ThreadManager[] = {
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   32,    2, 0x06,    1 /* Public */,
        3,    0,   33,    2, 0x06,    2 /* Public */,
-       4,    2,   34,    2, 0x06,    3 /* Public */,
+       4,    3,   34,    2, 0x06,    3 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    5,    6,
+    QMetaType::Void, QMetaType::Int, QMetaType::QString, QMetaType::QString,    5,    6,    7,
 
        0        // eod
 };
@@ -97,8 +100,9 @@ Q_CONSTINIT const QMetaObject bthread::ThreadManager::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'allStopped'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'threadLog'
+        // method 'threadLogMessage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
     >,
@@ -113,7 +117,7 @@ void bthread::ThreadManager::qt_static_metacall(QObject *_o, QMetaObject::Call _
         switch (_id) {
         case 0: _t->allStarted(); break;
         case 1: _t->allStopped(); break;
-        case 2: _t->threadLog((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 2: _t->threadLogMessage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -133,8 +137,8 @@ void bthread::ThreadManager::qt_static_metacall(QObject *_o, QMetaObject::Call _
             }
         }
         {
-            using _t = void (ThreadManager::*)(const QString & , const QString & );
-            if (_t _q_method = &ThreadManager::threadLog; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadManager::*)(int , const QString & , const QString & );
+            if (_t _q_method = &ThreadManager::threadLogMessage; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
             }
@@ -185,9 +189,9 @@ void bthread::ThreadManager::allStopped()
 }
 
 // SIGNAL 2
-void bthread::ThreadManager::threadLog(const QString & _t1, const QString & _t2)
+void bthread::ThreadManager::threadLogMessage(int _t1, const QString & _t2, const QString & _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP

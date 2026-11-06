@@ -18,13 +18,19 @@ class MessageBus;
 // 2. 生命周期钩子：onInit / onStart / onMessage / onStop / onCleanup，子类按需重写
 // 3. 通信：通过 MessageBus 广播，或 postMessage() 点对点投递（均为 QueuedConnection）
 // 4. 优雅停止：stopGracefully() 置位标志 + quit() 退出事件循环
-// 5. 日志：通过 log() 信号交由主线程统一处理（spdlog）
+// 5. 日志：混合模式
+//    - 子线程直接调用 spdlog（文件+控制台，_mt sink 线程安全，低延迟、保序）
+//    - 同时 emit logMessage 信号，供主线程 UI 显示（不重复写 spdlog）
 // ---------------------------------------------------------------------------
 class BusinessThread : public QThread {
     Q_OBJECT
 public:
     explicit BusinessThread(const QString& name, QObject* parent = nullptr);
     ~BusinessThread() override;
+
+    // 日志级别（与信号一起传递，便于 UI 按级别着色）
+    enum LogLevel { Debug = 0, Info, Warn, Error };
+    Q_ENUM(LogLevel)
 
     QString name() const { return name_; }
     bool isRunning() const { return running_.loadRelaxed() != 0; }
@@ -42,7 +48,10 @@ signals:
     void started(const QString& name);
     void stopped(const QString& name);
     void error(const QString& name, const QString& err);
-    void log(const QString& name, const QString& msg);
+
+    // 日志信号：仅供 UI 显示使用（spdlog 已由子线程直接写入，避免重复）
+    // level 取值见 LogLevel 枚举
+    void logMessage(int level, const QString& name, const QString& msg);
 
     // 内部信号：用于 postMessage 跨线程投递
     void _messagePosted(const bthread::Message& msg);
@@ -68,8 +77,10 @@ protected:
 
     // 子类可用：向总线广播消息
     void broadcast(const QString& type, const QVariant& data = QVariant());
-    // 子类可用：记录日志（经信号交由主线程）
+    // 子类可用：记录日志（混合模式：直接写 spdlog + 发信号给 UI）
+    void logDebug(const QString& msg);
     void logInfo(const QString& msg);
+    void logWarn(const QString& msg);
     void logError(const QString& msg);
 
     QString name_;
